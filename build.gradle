@@ -372,8 +372,6 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	
 	contentType = groovyx.net.http.ContentType.JSON
 	
-
-	}
 	
 	
 	
