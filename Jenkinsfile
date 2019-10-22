@@ -78,7 +78,13 @@ pipeline {
                 sh "./gradlew performOperation -Dprpc.service.util.action=export -Dpega.rest.server.url=${env.PEGA_DEV}/PRRestService -Dpega.rest.username=${IMS_USER} -Dpega.rest.password=${IMS_PASSWORD} -Duser.temp.dir=${WORKSPACE}/tmp"
             }
         }
-
+        
+        stage ('Export from Artifactory'){
+        steps {
+             echo 'Export from Artifactory'
+                sh. "./gradlew ExportFromArtifactory -PtargetURL=${env.PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+        }
+        }
         stage('Publish to Artifactory') {
 
             steps {
