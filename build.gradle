@@ -239,7 +239,7 @@ task deployToProduction(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
 	description 'Test Deploy'
 	println "TEST TEST TEST"
-
+}
 task merge(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
 	description 'Merge a branch.'
