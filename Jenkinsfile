@@ -110,6 +110,13 @@ pipeline {
                 sh "./gradlew createRestorePoint -PtargetURL=${PEGA_PROD} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
         }
+        stage('TESTE DEPLOY') {
+
+            steps {
+              echo 'Deploying to production '
+              sh "./gradlew deployToProduction -PtargetURL=${PEGA_PROD} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+            }
+        }
         stage('Deploy to production') {
 
             steps {
