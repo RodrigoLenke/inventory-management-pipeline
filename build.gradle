@@ -239,6 +239,11 @@ task deployToProduction(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
 	description 'Test Deploy'
 	println "TEST TEST TEST"
+	doFirst {
+		// Validate project properties
+		if (!project.hasProperty("branch") || !project.hasProperty('targetURL')) {
+			throw new InvalidUserDataException("Must supply '-Pbranch' and '-PtargetURL'")
+		}
 }
 task merge(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
