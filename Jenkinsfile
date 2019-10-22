@@ -81,7 +81,7 @@ pipeline {
           stage ('Export from Artifactory'){
         steps {
              echo 'Export from Artifactory'
-                sh. "./gradlew exportFromArtifactory -PtargetURL=${env.PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+                sh "./gradlew exportFromArtifactory -PtargetURL=${env.PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
         }
 
