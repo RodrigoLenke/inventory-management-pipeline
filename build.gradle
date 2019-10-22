@@ -358,7 +358,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 		}
 	}
 }
-task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
+task exportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
 	description 'Test Export'
 	println "TEST TEST TEST"
