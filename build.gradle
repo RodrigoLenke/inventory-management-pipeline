@@ -235,6 +235,7 @@ task getConflicts(type: org._10ne.gradle.rest.RestTask) {
 		}
 	}
 }
+
 task merge(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
 	description 'Merge a branch.'
