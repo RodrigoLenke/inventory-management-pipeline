@@ -358,8 +358,8 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 		}
 	}
 }
-task deployToBranch(type: org._10ne.gradle.rest.RestTask) {
+task deployToProduction(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
-	description 'Execute PegaUnit tests'
+	description 'TESTE DEPLOY'
 	println "TEST TEST" 
 	}
