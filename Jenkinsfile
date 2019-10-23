@@ -71,6 +71,12 @@ pipeline {
             }
           }
         }
+                stage('Export from Dev') {
+            steps {
+                echo 'Exporting application from Dev environment : ' + env.PEGA_DEV
+                sh "./gradlew performOperation -Dprpc.service.util.action=export -Dpega.rest.server.url=${env.PEGA_DEV}/PRRestService -Dpega.rest.username=${IMS_USER} -Dpega.rest.password=${IMS_PASSWORD} -Duser.temp.dir=${WORKSPACE}/tmp"
+            }
+        }
 
         stage('Publish to Artifactory') {
 
