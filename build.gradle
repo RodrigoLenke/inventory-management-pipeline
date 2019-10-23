@@ -384,3 +384,4 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
                  todir: "C:/toArchive"
     		}
 	}
+}
