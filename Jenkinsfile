@@ -19,8 +19,8 @@ pipeline {
     }
 
     stages {
-
-        stage('Check for merge conflicts'){
+        
+         stage('TEST'){
             steps {
                 echo ('Clear workspace')
                 dir ('build/export') {
@@ -28,6 +28,15 @@ pipeline {
                 }
 
                 echo 'Determine Conflicts'
+                sh "./gradlew ExportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+            }
+        }
+        
+        ExportFromArtifactory
+
+        stage('Check for merge conflicts'){
+            steps {
+                echo 'TESTESTEST'
                 sh "./gradlew getConflicts -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
         }
