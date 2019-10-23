@@ -373,15 +373,17 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	password = findProperty('pegaPassword')
 	
 	contentType = groovyx.net.http.ContentType.JSON
+	
+	doLast {
+        ant.move file: "${artifactLocation}/reports",
+                 todir: "C:/toArchive"
+    		}
 		
 	doFirst {
 		// Validate project properties
 		if (!project.hasProperty('targetURL')) {
 			throw new InvalidUserDataException("Must supply '-PtargetURL'")
 		}
-		    doLast {
-        ant.move file: "${artifactLocation}/reports",
-                 todir: "C:/toArchive"
-    		}
+	
 	}
 }
