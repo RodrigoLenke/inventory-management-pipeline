@@ -30,9 +30,7 @@ pipeline {
                 echo 'Determine Conflicts'
                 sh "./gradlew ExportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
-        }
-        
-        ExportFromArtifactory
+         }
 
         stage('Check for merge conflicts'){
             steps {
