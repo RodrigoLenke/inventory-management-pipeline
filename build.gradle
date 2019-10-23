@@ -37,6 +37,11 @@ import java.io.File
 // Import the ANT targets defined in prpcServiceUtils for application import and export
 ant.importBuild 'prpcServiceUtils/scripts/utils/prpcServiceUtilsWrapper.xml'
 
+ext {
+	resultHandler = new ResultHandler(project)
+}
+
+
 // Define properties to be used later in later tasks
 def buildNumber = findProperty("buildNumber") ?:System.env.BUILD_NUMBER
 def applicationName = findProperty("applicationName") ?:defaultApplicationName
