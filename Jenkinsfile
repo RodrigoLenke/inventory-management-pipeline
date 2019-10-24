@@ -18,11 +18,15 @@ pipeline {
         ])
     }
 
+    stages {
 
         stage('Check for merge conflicts'){
             steps {
-                 echo ('Clear workspace') 
-                dir ('build/export')
+                echo ('Clear workspace')
+                dir ('build/export') {
+                    deleteDir()
+                }
+
                 echo 'Determine Conflicts'
                 sh "./gradlew getConflicts -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
@@ -67,7 +71,8 @@ pipeline {
             }
           }
         }
-                stage('Export from Dev') {
+
+        stage('Export from Dev') {
             steps {
                 echo 'Exporting application from Dev environment : ' + env.PEGA_DEV
                 sh "./gradlew performOperation -Dprpc.service.util.action=export -Dpega.rest.server.url=${env.PEGA_DEV}/PRRestService -Dpega.rest.username=${IMS_USER} -Dpega.rest.password=${IMS_PASSWORD} -Duser.temp.dir=${WORKSPACE}/tmp"
