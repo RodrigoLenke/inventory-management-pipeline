@@ -23,10 +23,7 @@ pipeline {
          stage('TEST'){
             steps {
                 echo 'TESTESTEST' 
-                dir ('build/export') {
-                    path('C:/')
-                }
-
+                dir ('build/export') 
                 echo 'Determine Conflicts'
                 sh "./gradlew ExportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
