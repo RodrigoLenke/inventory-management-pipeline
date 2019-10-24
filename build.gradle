@@ -359,28 +359,3 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 		}
 	}
 }
-task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
-	group 'Pega'
-	description 'Test Export'
-	println "TEST TEST TEST"
-	def branch = findProperty('branch')
-	def targetURL = findProperty('targetURL')
-	
-	httpMethod = 'get'
-	uri = "${targetURL}/PRRestService/SystemManagement/v2/Export?branchName=${branch}"
-	
-	username = findProperty('pegaUsername')
-	password = findProperty('pegaPassword')
-	
-	contentType = groovyx.net.http.ContentType.JSON
-	accept = "application/json"
-
-		
-	doFirst {
-		// Validate project properties
-		if (!project.hasProperty('targetURL')) {
-			throw new InvalidUserDataException("Must supply '-PtargetURL'")
-		}
-	
-	}
-}
