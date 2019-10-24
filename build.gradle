@@ -359,7 +359,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	}
 }
 		 
-	task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
+	task exportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
 	description 'Test Export'
 	println "TEST TEST TEST"
@@ -381,14 +381,14 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	}
 }
 
-task CopyFiles( type: Copy ) {
+task copyFiles( type: Copy ) {
 
     from ('/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport')
     into '${artifactoryLocation}'
 }
 
  
-task exportingOperation( dependsOn: CopyFiles ) << {
+task exportingOperation( dependsOn: copyFiles ) << {
 
     copy {
         from ('/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport') 
