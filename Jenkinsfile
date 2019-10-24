@@ -22,9 +22,9 @@ pipeline {
         
          stage('TEST'){
             steps {
-                echo ('Clear workspace')
+                echo 'TESTESTEST' 
                 dir ('build/export') {
-                    deleteDir()
+                    path('C:/')
                 }
 
                 echo 'Determine Conflicts'
@@ -34,7 +34,11 @@ pipeline {
 
         stage('Check for merge conflicts'){
             steps {
-                echo 'TESTESTEST'
+                 echo ('Clear workspace') 
+                dir ('build/export') {
+                    deleteDir()
+                }
+                echo 'Determine Conflicts'
                 sh "./gradlew getConflicts -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
         }
