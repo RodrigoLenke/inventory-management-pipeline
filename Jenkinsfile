@@ -15,9 +15,31 @@ pipeline {
         usernamePassword(credentialsId: 'imsadmin', 
             passwordVariable: 'IMS_PASSWORD', 
             usernameVariable: 'IMS_USER')
+          
         ])
     }
-
+    
+    stages {
+        
+         stage('TEST'){
+            steps {
+                echo 'TESTESTEST' 
+                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST'
+                sh "./gradlew ExportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+            }
+         }
+		     stages {
+        
+         stage('TEST DOIS'){
+            steps {
+                echo 'TESTESTEST DOIS' 
+                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST DOIS'
+                sh "./gradlew exportingOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -PfileLocal=${PATH_ART}"
+            }
+         }
+		 
+		 
+		 
     stages {
 
         stage('Check for merge conflicts'){
