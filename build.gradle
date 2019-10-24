@@ -112,43 +112,6 @@ artifactory {
 	}
 }
 
-task fetchFromArtifactory(type: Download) {
-	group 'Pega'
-	description 'Fetch application archive from artifactory'
-
-
-	// fetch all files in this folder
-	println "Bence: current files in importfolder:"
-	def list = []
-	def dir = new File(importFolder)
-	dir.eachFileRecurse (FileType.FILES) {
-		file ->
-	  	list << file
-	}
-	// print all files in folder
-	list.each {
-  	println it.path
-	}
-	
-	doFirst {
-		println 'First clean out import folder on the Jenkins system' +importFolder
-	  File folder = new File(importFolder)
-		folder.eachFileRecurse(FileType.FILES) {
-	    file ->
-	        file.delete()
-		}
-	}
-
-	println 'Downloading artifact from : ' + artifactLocation
-	src artifactLocation
-	username artifactoryUser
-	password artifactoryPassword
-	dest importFolder
-
-}
-
-
-
 
 task createRestorePoint(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
@@ -381,14 +344,14 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	}
 }
 
-task copyFiles( type: Copy ) {
+task copyFiles(type:Copy) {
 
     from ('/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport')
     into '${artifactoryLocation}'
 }
 
  
-task exportingOperation( dependsOn: copyFiles ) << {
+task exportingOperation(dependsOn:copyFiles) <<{
 
     copy {
         from ('/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport') 
