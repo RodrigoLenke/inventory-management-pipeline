@@ -383,15 +383,15 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 
 task CopyFiles( type: Copy ) {
 
-    from ('${WORKSPACE}')
-    into 'TestePaste'
+    from ('/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport')
+    into '${artifactoryLocation}'
 }
 
  
 task exportingOperation( dependsOn: CopyFiles ) << {
 
     copy {
-        from ('${WORKSPACE}') 
-        into 'TestePaste'
+        from ('/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport') 
+        into '${artifactoryLocation}'
     }
 }
