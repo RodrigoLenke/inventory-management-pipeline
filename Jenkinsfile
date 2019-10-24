@@ -1,3 +1,4 @@
+  
 /* 
 * Copyright (c) 2017 and Confidential to Pegasystems Inc. All rights reserved.  
 */ 
@@ -15,10 +16,9 @@ pipeline {
         usernamePassword(credentialsId: 'imsadmin', 
             passwordVariable: 'IMS_PASSWORD', 
             usernameVariable: 'IMS_USER')
-          
         ])
     }
-	stage('TEST'){
+		stage('TEST'){
             steps {
                 echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST'
                 sh "./gradlew ExportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
@@ -30,6 +30,8 @@ pipeline {
                 sh "./gradlew exportingOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} "
             }
          }
+
+    stages {
 
         stage('Check for merge conflicts'){
             steps {
