@@ -332,15 +332,9 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	httpMethod = 'get'
 	uri = "${targetURL}/PRRestService/SystemManagement/v2/Export?branchName=${branch}"
 	
-	task go << {
-		def headers = [ Accept: 'application/json']
-		def jsonText = new URL( "http://ip.jsontest.com" ).getText( requestProperties: headers)
-		def parsedJson = new JsonSlurper().parsedText(jsonText) as Map
-		
-		assert parsedJson.ip !=null
-		
-		new File ( 'my-file.json' ).write jsonText
-	}
+	
+		def 'get' = [ Accept: 'application/json']
+	
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
 
