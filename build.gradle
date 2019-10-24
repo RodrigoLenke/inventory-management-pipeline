@@ -374,11 +374,15 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	
 	contentType = groovyx.net.http.ContentType.JSON
 	
-	doLast {
-        ant.move file: "${fileName}/reports",
-                 todir: "C:/toArchive"
-		 Accept: application/json
-    		}
+	println "TESTE: current files in exportfolder:"
+	def list = []
+	def dir = new File(exportFolder)
+	
+	// print all files in folder
+	list.each {
+  	println it.path
+	}
+
 		
 	doFirst {
 		// Validate project properties
