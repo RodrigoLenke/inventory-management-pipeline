@@ -377,6 +377,7 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	doLast {
         ant.move file: "${fileName}/reports",
                  todir: "C:/toArchive"
+		 Accept: application/json
     		}
 		
 	doFirst {
