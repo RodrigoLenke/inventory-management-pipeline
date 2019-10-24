@@ -373,7 +373,7 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	password = findProperty('pegaPassword')
 	
 	contentType = groovyx.net.http.ContentType.JSON
-	accept: 'application/json'
+	accept = "application/json"
 
 		
 	doFirst {
