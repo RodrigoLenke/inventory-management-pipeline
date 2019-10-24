@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'TESTESTEST DOIS' 
                 echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST DOIS'
-                sh "./gradlew exportingOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -PfileLocal=${artifactLocation}"
+                sh "./gradlew exportingOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} "
             }
          }
 		 
