@@ -25,7 +25,7 @@ pipeline {
                 sh "./gradlew ExportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
          }
-         stage('TEST DOIS'){
+         stage('TEST_DOIS'){
             steps {
                 echo 'TESTESTEST DOIS' 
                 echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST DOIS'
