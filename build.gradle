@@ -373,15 +373,7 @@ task ExportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
 	password = findProperty('pegaPassword')
 	
 	contentType = groovyx.net.http.ContentType.JSON
-	
-	println "TESTE: current files in exportfolder:"
-	def list = []
-	def dir = new File(exportFolder)
-	
-	// print all files in folder
-	list.each {
-  	println it.path
-	}
+	accept: "application/json"
 
 		
 	doFirst {
