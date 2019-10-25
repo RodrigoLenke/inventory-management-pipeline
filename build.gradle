@@ -56,7 +56,6 @@ def artifactLocation = findProperty("artifactoryLocation") ?:"${artifactoryURL}/
 artifactLocation = artifactLocation.replaceAll(/^https\:/, 'http:')
 def exportAsyncSetting = findProperty("exportAsyncSetting") ?:defaultExportAsyncSetting
 def importAsyncSetting = findProperty("exportAsyncSetting") ?:defaultImportAsyncSetting
-def localArchive = '/StaticContent/global/ServiceExport/BrainController.jar'
 
 group = artifactorGroup
 version = artifactVersion
@@ -360,9 +359,9 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
 
-		def pyZipFileName = ${localArchive}
+		def .pyFileName = 'BrainController.jar'
 		println "Success"
-		println "${pzZipFileName}"
+		
 
 	doFirst {
 		// Validate project properties
