@@ -353,14 +353,11 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	def targetURL = findProperty('targetURL')
 	
 	httpMethod = 'post'
-	uri = "${targetURL}/SystemManagement/v2/Import"
+	uri = "${targetURL}/SystemManagement/v2/Import?pyZipFileName=ARR7.2.zip"
 	
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
 
-		def pyFileName = 'BrainController.jar'
-		println "Success"
-		
 
 	doFirst {
 		// Validate project properties
