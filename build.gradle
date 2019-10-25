@@ -336,7 +336,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	password = findProperty('pegaPassword')
 	
 	httpMethod = 'put'
-	uri = http://192.168.163.128:9080/prweb/PRRestService/PegaRepository/v1/Artifacts
+	uri = "${targetURL}/PRRestService/PegaRepository/v1/Artifacts"
 	
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
