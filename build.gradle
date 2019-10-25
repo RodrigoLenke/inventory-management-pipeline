@@ -329,7 +329,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	def branch = findProperty('branch')
 	def targetURL = findProperty('targetURL')
 	
-	httpMethod = 'get'
+	httpMethod = 'put'
 	uri = "${targetURL}/PRRestService/PegaRepository/v1/Artifacts?ArtifactName=${branch}&ArtifactType=branch"
 	
 	username = findProperty('pegaUsername')
