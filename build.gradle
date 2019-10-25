@@ -334,7 +334,8 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
-
+	contentType = groovyx.net.http.ContentType.JSON
+	
 	doFirst {
 		// Validate project properties
 		if (!project.hasProperty('targetURL')) {
@@ -357,6 +358,15 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
+	contentType = groovyx.net.http.ContentType.JSON
+		responseHandler = { response ->
+		def archiveName2 = response.pyZipFileName
+
+		resultHandler.putResult("archiveName2", archiveName2)
+		println "Success: ${response.toString()}"
+		println "${archiveName2}"
+	}
+	
 
 	doFirst {
 		// Validate project properties
