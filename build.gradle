@@ -360,9 +360,9 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
 	contentType = groovyx.net.http.ContentType.JSON
-		def pyZipFileName = localArchive
+		def pyZipFileName = ${localArchive}
 		println "Success"
-		println "${archiveName2}"
+		println "${pzZipFileName}"
 
 	doFirst {
 		// Validate project properties
