@@ -353,7 +353,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	def targetURL = findProperty('targetURL')
 	
 	httpMethod = 'post'
-	uri = "${targetURL}/SystemManagement/v2/Import?pyZipFileName=ARR7.1.zip"
+	uri = "${targetURL}/SystemManagement/v2/Import?pyZipFileName=TesteBranch.jar"
 	
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
