@@ -359,7 +359,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
 
-		def .pyFileName = 'BrainController.jar'
+		def pyFileName = 'BrainController.jar'
 		println "Success"
 		
 
