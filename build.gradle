@@ -85,7 +85,6 @@ println "archiveNameWithExt : ${archiveNameWithExt}"
 println "artifactLocation : ${artifactLocation}"
 println "exportAsyncSetting : ${exportAsyncSetting}"
 println "importAsyncSetting : ${importAsyncSetting}"
-println "localArchive : ${localArchive}"
 
 publishing {
 	publications {
