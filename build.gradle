@@ -333,7 +333,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	uri = "${targetURL}/PRRestService/SystemManagement/v2/Export?branchName=${branch}"
 	
 	
-		def 'get' = [ Accept: 'application/json']
+	Accept: 'application/json'
 	
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
