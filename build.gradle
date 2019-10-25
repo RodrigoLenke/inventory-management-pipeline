@@ -361,9 +361,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	password = findProperty('pegaPassword')
 	contentType = groovyx.net.http.ContentType.JSON
 		responseHandler = { response ->
-		def archiveName2 = response.pyZipFileName[0].pyZipFileName
-
-		resultHandler.putResult("archiveName2", archiveName2)
+		def pyZipFileName = localArchive
 		println "Success"
 		println "${archiveName2}"
 	}
