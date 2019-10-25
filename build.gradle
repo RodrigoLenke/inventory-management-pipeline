@@ -56,7 +56,6 @@ def artifactLocation = findProperty("artifactoryLocation") ?:"${artifactoryURL}/
 artifactLocation = artifactLocation.replaceAll(/^https\:/, 'http:')
 def exportAsyncSetting = findProperty("exportAsyncSetting") ?:defaultExportAsyncSetting
 def importAsyncSetting = findProperty("exportAsyncSetting") ?:defaultImportAsyncSetting
-def localArchive = findProperty{"pyZipFileName"} ?: "${targetURL}/StaticContent/global/ServiceExport/BrainController.jar"
 
 group = artifactorGroup
 version = artifactVersion
