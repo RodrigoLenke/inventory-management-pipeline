@@ -322,10 +322,9 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	}
 }
 		 
-	task exportFromArtifactory(type: org._10ne.gradle.rest.RestTask) {
+	task exportOperation(type: org._10ne.gradle.rest.RestTask) {
 	group 'Pega'
-	description 'Test Export'
-	println "TEST TEST TEST"
+	description 'Export Operation'
 	def branch = findProperty('branch')
 	def targetURL = findProperty('targetURL')
 	
@@ -347,8 +346,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
  
 	task ImportOperation(type: org._10ne.gradle.rest.RestTask){
 	group 'Pega'
-	description 'Test Import'
-	println "TEST TEST TEST"
+	description 'Import Operation'
 	def branch = findProperty('branch')
 	def targetURL = findProperty('targetURL')
 	
