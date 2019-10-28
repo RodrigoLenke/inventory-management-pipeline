@@ -22,19 +22,6 @@ pipeline {
 
     stages {
 	    
-	    	stage('TEST'){
-            steps {
-                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST'
-                sh "./gradlew exportFromArtifactory -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
-            }
-         }
-	stage('TEST DOIS'){
-            steps {
-                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST DOIS'
-                sh "./gradlew importOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -Pbranch=${branchName}"
-            }
-         }
-
         stage('Check for merge conflicts'){
             steps {
                 echo ('Clear workspace')
@@ -86,6 +73,12 @@ pipeline {
             }
           }
         }
+	stage('Export Operation'){
+            steps {
+                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST'
+                sh "./gradlew exportOperation -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+            }
+         }
 	    
 	    stage('Publish to Artifactory') {
 
@@ -111,6 +104,12 @@ pipeline {
                 sh "./gradlew createRestorePoint -PtargetURL=${PEGA_PROD} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
         }
+	stage('Import Operation'){
+            steps {
+                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST DOIS'
+                sh "./gradlew importOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -Pbranch=${branchName}"
+            }
+         }
 
   }
 
