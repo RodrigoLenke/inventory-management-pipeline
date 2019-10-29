@@ -76,7 +76,7 @@ pipeline {
 	stage('Export Operation'){
             steps {
                 echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST'
-                sh "./gradlew exportOperation -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+		    sh "./gradlew exportOperation -PapplicationName=${applicationName} -PapplicationVersion=${applicationVersion} -PproductName=${productName} -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -"
             }
          }
 	    
