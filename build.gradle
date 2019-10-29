@@ -289,8 +289,8 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	testResultFileHandle.createNewFile()
 
     println "\nTest result file location - ${testResultFileHandle.absolutePath}"
-
-	uri = "${targetURL}/PRRestService/PegaUnit/Rule-Test-Unit-Case/pzExecuteTests?TestSuiteID=${java.net.URLEncoder.encode(testSuite, "UTF-8")}"
+	
+	uri = "${targetURL}/PRRestService/PegaUnit/Rule-Test-Unit-Case/pzExecuteTests?TestSuiteID=DMORG-IMSDEVEL-WORK!TS_IMS_REGRESSION"
 	
 	// Add the access group if it is specified
 	if (accessGroup != null) {
@@ -327,9 +327,11 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	description 'Export Operation'
 	def branch = findProperty('branch')
 	def targetURL = findProperty('targetURL')
+	def productName = findProperty('productName')
 	
 	httpMethod = 'get'
-	uri = "${targetURL}/PRRestService/SystemManagement/v2/Export?branchName=${branch}"
+	uri ="${targetURL}/PRRestService/SystemManagement/v2/Export?applicationName=${applicationName}&applicationVersion=${applicationVersion}&archiveName=${archiveName}_${buildNumber}&productName=${productName}&branchName=${branch}"
+
 
 	username = findProperty('pegaUsername')
 	password = findProperty('pegaPassword')
