@@ -186,7 +186,7 @@ task getConflicts(type: org._10ne.gradle.rest.RestTask) {
 		if (response.conflictsCount as int == 0) {
 			println "No conflicts!"
 			} else {
-				println "Conflicts found: ${response.conflicts}"
+				println "O pacote não pode ser gerado pois existem regras em conflito na branch ${branch}"
 				throw new BuildCancelledException("Found '${response.conflictsCount}' conflicts.")
 			}
 		}
