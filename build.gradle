@@ -278,6 +278,8 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	def testSuite = findProperty('testSuite') ? '':project.smokeTestSuite
 	def testResultLocation = findProperty('testResultLocation') ?:System.getProperty("user.dir")
 	def testResultFile = findProperty('testResultFile') ?:project.testResultFile
+	def testUnitID = findProperty('testUnitID')
+	
 	File testResultFileHandle
 	if (testResultLocation != null) {
 		testResultFileHandle = new File("${testResultLocation}/${testResultFile}")
@@ -290,7 +292,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 
     println "\nTest result file location - ${testResultFileHandle.absolutePath}"
 	
-	uri = "${targetURL}/PRRestService/PegaUnit/Rule-Test-Unit-Case/pzExecuteTests?TestSuiteID=DMORG-IMSDEVEL-WORK!TS_IMS_REGRESSION"
+	uri = "${targetURL}/PRRestService/PegaUnit/Rule-Test-Unit-Case/pzExecuteTests?TestSuiteID=${testUnitID}"
 	
 	// Add the access group if it is specified
 	if (accessGroup != null) {
