@@ -39,7 +39,7 @@ pipeline {
             echo 'Execute tests'
 
             withEnv(['TESTRESULTSFILE="TestResult.xml"']) {
-              sh "./gradlew executePegaUnitTests -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -PtestResultLocation=${WORKSPACE} -PtestResultFile=${TESTRESULTSFILE}"
+              sh "./gradlew executePegaUnitTests -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -PtestResultLocation=${WORKSPACE} -PtestUnitID=${testUnitID} -PtestResultFile=${TESTRESULTSFILE}"
                     
              // junit(allowEmptyResults: true, testResults: "${env.WORKSPACE}/${env.TESTRESULTSFILE}")
 
@@ -75,7 +75,7 @@ pipeline {
         }
 	stage('Export Operation'){
             steps {
-                echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST'
+                echo 'Realizando exportação'
 		    sh "./gradlew exportOperation -PapplicationName=${applicationName} -PapplicationVersion=${applicationVersion} -PproductName=${productName} -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -"
             }
          }
