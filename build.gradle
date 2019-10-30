@@ -51,8 +51,7 @@ def artifactorGroup = findProperty("artifactoryGroup") ?:defaultArtifactoryGroup
 def artifactoryRepoKey = findProperty("artifactoryRepoKey") ?:defaultArtifactoryRepoKey
 def archiveName = "${applicationName}_${buildNumber}"
 def archiveNameWithExt = "${archiveName}.zip"
-def artifactLocation = findProperty("artifactoryLocation") ?:("/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport/")
-//"${artifactoryURL}/${artifactoryRepoKey}/${artifactorGroup}/${applicationName}/${artifactVersion}/${applicationName}-${applicationVersion}_${buildNumber}.zip"
+def artifactLocation = findProperty("artifactoryLocation") ?:"${artifactoryURL}/${artifactoryRepoKey}/${artifactorGroup}/${applicationName}/${artifactVersion}/${applicationName}-${applicationVersion}_${buildNumber}.zip"
 //replace https with http since the download location does not require sign in
 artifactLocation = artifactLocation.replaceAll(/^https\:/, 'http:')
 def exportAsyncSetting = findProperty("exportAsyncSetting") ?:defaultExportAsyncSetting
