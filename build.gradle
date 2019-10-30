@@ -329,6 +329,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	description 'Export Operation'
 	def branch = findProperty('branch')
 	def targetURL = findProperty('targetURL')
+	def productName = findProperty('productName')
 	
 	httpMethod = 'get'
 	uri ="${targetURL}/PRRestService/SystemManagement/v2/Export?applicationName=${applicationName}&applicationVersion=${applicationVersion}&archiveName=${archiveName}&productName=${productName}&branchName=${branch}"
