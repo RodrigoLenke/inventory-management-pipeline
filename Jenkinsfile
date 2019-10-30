@@ -107,7 +107,7 @@ pipeline {
 	stage('Import Operation'){
             steps {
                 echo 'TEST TEST TEST TEST TEST TEST TEST TEST TEST DOIS'
-                sh "./gradlew importOperation -PtargetURL=${PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -Pbranch=${branchName}"
+                sh "./gradlew importOperation -PtargetURL=${PEGA_PROD} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -Pbranch=${branchName}"
             }
          }
 
