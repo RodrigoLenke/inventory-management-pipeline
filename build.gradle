@@ -49,8 +49,8 @@ def artifactVersion = findProperty("artifactVersion") ?:applicationVersion + '_'
 def artifactoryURL = findProperty("artifactoryURL") ?:System.env.ARTIFACTORY_URL
 def artifactorGroup = findProperty("artifactoryGroup") ?:defaultArtifactoryGroup
 def artifactoryRepoKey = findProperty("artifactoryRepoKey") ?:defaultArtifactoryRepoKey
-def archiveName = "${applicationName}_${applicationVersion}"
-def archiveNameWithExt = "ARR7.4.zip"
+def archiveName = "${applicationName}_${buildNumber}"
+def archiveNameWithExt = "${archiveName}"
 def artifactLocation = findProperty("artifactoryLocation") ?:"${artifactoryURL}/${artifactoryRepoKey}/${artifactorGroup}/${applicationName}/${artifactVersion}/${applicationName}-${applicationVersion}_${buildNumber}.zip"
 //replace https with http since the download location does not require sign in
 artifactLocation = artifactLocation.replaceAll(/^https\:/, 'http:')
@@ -332,7 +332,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	def productName = findProperty('productName')
 	
 	httpMethod = 'get'
-	uri ="${targetURL}/PRRestService/SystemManagement/v2/Export?applicationName=${applicationName}&applicationVersion=${applicationVersion}&archiveName=${archiveName}_${buildNumber}&productName=${productName}&branchName=${branch}"
+	uri ="${targetURL}/PRRestService/SystemManagement/v2/Export?applicationName=${applicationName}&applicationVersion=${applicationVersion}&archiveName=${archiveName}&productName=${productName}&branchName=${branch}"
 
 
 	username = findProperty('pegaUsername')
