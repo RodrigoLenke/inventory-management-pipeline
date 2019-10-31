@@ -67,7 +67,7 @@ def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExi
 ant.properties['export.applicationName'] = applicationName
 ant.properties['export.applicationVersion'] = applicationVersion
 ant.properties['export.archiveName'] = archiveNameWithExt
-ant.properties['service.responseartifacts.dir'] = exportFolder
+
 ant.properties['export.async']=exportAsyncSetting
 ant.properties['import.async']=importAsyncSetting
 
