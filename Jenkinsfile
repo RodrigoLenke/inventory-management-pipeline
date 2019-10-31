@@ -65,7 +65,7 @@ pipeline {
             echo 'Evaluating merge Id from gradle script = ' + env.MERGE_ID
             timeout(time: 5, unit: 'MINUTES') {
                 echo "Setting the timeout for 1 min.."
-                retry(10) {
+                retry(1) {
                     echo "Merge is still being performed. Retrying..."
                     sh "./gradlew getMergeStatus -PtargetURL=${env.PEGA_DEV} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
                     echo "Merge Status : ${env.MERGE_STATUS}"
