@@ -60,7 +60,7 @@ def importAsyncSetting = findProperty("exportAsyncSetting") ?:defaultImportAsync
 group = artifactorGroup
 version = artifactVersion
 
-def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport")
+def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("/StaticContent/global/ServiceExport")
 
 
 // Define ANT properties for the target defined in prpcServiceUtils
