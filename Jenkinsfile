@@ -96,19 +96,19 @@ pipeline {
                 echo 'Publish to production repository'
             }
         }
-	 stage('Fetch from Artifactory') {
-
-            steps {
-              echo 'Fetching application archive from Artifactory'
-              sh  "./gradlew fetchFromArtifactory -PtargetURL=${PEGA_PROD} -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword=${ARTIFACTORY_PASSWORD}"
-            }
-        }
 
         stage('Create restore point') {
 
             steps {
                 echo 'Creating restore point'
                 sh "./gradlew createRestorePoint -PtargetURL=${PEGA_PROD} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
+            }
+        }
+	   stage('Fetch from Artifactory') {
+
+            steps {
+              echo 'Fetching application archive from Artifactory'
+              sh  "./gradlew fetchFromArtifactory -PtargetURL=${PEGA_PROD} -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword=${ARTIFACTORY_PASSWORD}"
             }
         }
 	stage('Import Operation'){
