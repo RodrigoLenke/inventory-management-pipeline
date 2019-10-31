@@ -60,8 +60,8 @@ def importAsyncSetting = findProperty("exportAsyncSetting") ?:defaultImportAsync
 group = artifactorGroup
 version = artifactVersion
 
-def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("${PEGA_DEV}/StaticContent/global/ServiceExport/")
-def importFolder = findProperty("importFolder") ?: FileFinder.insureDirectoryExists("${PEGA_PROD}/StaticContent/global/ServiceExport/")
+def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("/StaticContent/global/ServiceExport/")
+def importFolder = findProperty("importFolder") ?: FileFinder.insureDirectoryExists("/StaticContent/global/ServiceExport/")
 
 // Define ANT properties for the target defined in prpcServiceUtils
 ant.properties['export.applicationName'] = applicationName
