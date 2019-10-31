@@ -100,7 +100,7 @@ pipeline {
 
             steps {
               echo 'Fetching application archive from Artifactory'
-              sh  "./gradlew fetchFromArtifactory -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword=${ARTIFACTORY_PASSWORD}"
+              sh  "./gradlew fetchFromArtifactory -PtargetURL=${PEGA_PROD} -PartifactoryUser=${ARTIFACTORY_USER} -PartifactoryPassword=${ARTIFACTORY_PASSWORD}"
             }
         }
 
