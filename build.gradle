@@ -375,8 +375,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 	src artifactLocation
 	username artifactoryUser
 	password artifactoryPassword
-	dest C:/testeImport
-
+	dest importFolder
 }
  
 	task ImportOperation(type: org._10ne.gradle.rest.RestTask){
