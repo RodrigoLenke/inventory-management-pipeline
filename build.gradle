@@ -60,14 +60,15 @@ def importAsyncSetting = findProperty("exportAsyncSetting") ?:defaultImportAsync
 group = artifactorGroup
 version = artifactVersion
 
-def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("/StaticContent/global/ServiceExport")
-
+def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("${buildDir}/export")
+def importFolder = findProperty("importFolder") ?: FileFinder.insureDirectoryExists("${buildDir}/import")
 
 // Define ANT properties for the target defined in prpcServiceUtils
 ant.properties['export.applicationName'] = applicationName
 ant.properties['export.applicationVersion'] = applicationVersion
 ant.properties['export.archiveName'] = archiveNameWithExt
-
+ant.properties['service.responseartifacts.dir'] = exportFolder
+ant.properties['import.archive.path']= importFolder
 ant.properties['export.async']=exportAsyncSetting
 ant.properties['import.async']=importAsyncSetting
 
@@ -350,7 +351,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 
 	// fetch all files in this folder
 	println "Bence: current files in importfolder:"
-	def importFolder = findProperty("importFolder") ?: FileFinder.insureDirectoryExists("/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport")
+	
 	def list = []
 	def dir = new File(importFolder)
 	dir.eachFileRecurse (FileType.FILES) {
