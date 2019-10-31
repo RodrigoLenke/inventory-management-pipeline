@@ -61,7 +61,7 @@ group = artifactorGroup
 version = artifactVersion
 
 def exportFolder = findProperty("exportFolder") ?: FileFinder.insureDirectoryExists("/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport")
-def importFolder = findProperty("importFolder") ?: FileFinder.insureDirectoryExists("/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport")
+
 
 // Define ANT properties for the target defined in prpcServiceUtils
 ant.properties['export.applicationName'] = applicationName
@@ -352,6 +352,7 @@ task executePegaUnitTests(type: org._10ne.gradle.rest.RestTask) {
 
 	// fetch all files in this folder
 	println "Bence: current files in importfolder:"
+	def importFolder = findProperty("importFolder") ?: FileFinder.insureDirectoryExists("${importURL}/opt/tomcat/work/Catalina/localhost/prweb/StaticContent/global/ServiceExport")
 	def list = []
 	def dir = new File(importFolder)
 	dir.eachFileRecurse (FileType.FILES) {
