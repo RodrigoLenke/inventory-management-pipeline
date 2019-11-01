@@ -20,7 +20,7 @@ pipeline {
     }
 	
 
-    stages {
+  /*  stages {
 	    
         stage('Check for merge conflicts'){
             steps {
@@ -117,7 +117,7 @@ pipeline {
                 sh "./gradlew importOperation -PtargetURL=${PEGA_PROD} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -Pbranch=${branchName}"
             }
          }
-
+*/
   }
 
   post {
