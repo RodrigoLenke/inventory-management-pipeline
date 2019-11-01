@@ -20,7 +20,7 @@ pipeline {
     }
 	
 
-  /*  stages {
+   stages {
 	    
         stage('Check for merge conflicts'){
             steps {
@@ -34,7 +34,7 @@ pipeline {
             }
         }
 
-        stage('Run unit tests'){
+     /*   stage('Run unit tests'){
           steps {
             echo 'Execute tests'
 
