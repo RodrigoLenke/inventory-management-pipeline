@@ -20,7 +20,7 @@ pipeline {
     }
 	
 
-   stages {
+  /* stages {
 	    
         stage('Check for merge conflicts'){
             steps {
@@ -32,7 +32,7 @@ pipeline {
                 echo 'Determine Conflicts'
                 sh "./gradlew getConflicts -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD}"
             }
-        }
+        }*/
 
      /*   stage('Run unit tests'){
           steps {
@@ -50,7 +50,7 @@ pipeline {
               }
             }
           }
-       }
+       }*/
 
        stage('Merge branch'){
         when {
@@ -73,7 +73,7 @@ pipeline {
             }
           }
         }
-	stage('Export Operation'){
+	/*stage('Export Operation'){
             steps {
                 echo 'Realizando exportação'
 		    sh "./gradlew exportOperation -PtargetURL=${PEGA_DEV} -Pbranch=${branchName} -PpegaUsername=${IMS_USER} -PpegaPassword=${IMS_PASSWORD} -PapplicationName=${applicationName} -PapplicationVersion=${applicationVersion}"
