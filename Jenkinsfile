@@ -20,9 +20,9 @@ pipeline {
     }
 	
 
-  /* stages {
+ stages {
 	    
-        stage('Check for merge conflicts'){
+         /* stage('Check for merge conflicts'){
             steps {
                 echo ('Clear workspace')
                 dir ('build/export') {
